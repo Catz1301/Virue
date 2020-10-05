@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <title>Virue</title>
+    </head>
+    <body onload="doVirue()">
+        <h1 style="color: #FF0060">VIRUE!</h1>
+        <script>
+            function doVirue() {
+                var now = new Date();
+                var millis = now.getTime();
+                var left = Math.floor(Math.random() * Math.floor(screen.width-200));
+                var top = Math.floor(Math.random() * Math.floor(screen.height-200));
+                window.open("C:/Users/jmiller202/Development/HTML/Virue/virue.html","VIRUE" + millis.toString(), "width=200,height=200,left="+left+",top="+top);
+            }
+        </script>
+    </body>
+</html>
