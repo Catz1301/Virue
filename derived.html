@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>Virue</title>
+    </head>
+    <body onload="doVirue()" >
+        <h1 style="color: #FF0060">VIRUE!</h1>
+        <!--<canvas id=b><svg onload='with(Math)for(I=Y=0;Y++<70;I=random()-1.9&I+1)for(i=12;i--;C=X=>b.getContext`2d`.fillRect(70+X,s*j+c*Y+70,1,1)||X,C(-C((c=cos(a=PI/3*i))*j-(s=sin(a))*Y)))j=i>5&&I'>-->
+        <script>
+            function doVirue() {
+                window.addEventListener('beforeunload', function (e) {
+                  // the absence of a returnValue property on the event will guarantee the browser unload happens
+                    let sparam = new URLSearchParam(window.location.search);
+                    if (sparam.has("reopenNew")) {
+                        let ron = parseInt(sparam.get("reopenNew"));
+                        for (let i = 0; i < ron; i++) {
+                            var now = new Date();
+                            var millis = now.getTime();
+                            var height = Math.floor(Math.random() * Math.floor(screen.height));
+                            var width = Math.floor(Math.random() * Math.floor(screen.width));
+                            var left = Math.floor(Math.random() * Math.floor(screen.width-width));
+                            var top = Math.floor(Math.random() * Math.floor(screen.height-height));
+                            //window.open("http://127.0.0.1:61627/virue.html","VIRUE" + millis.toString(), "width=200,height=200,left="+left+",top="+top);
+                            window.open("C:\\Users\\jmiller202\\Downloads\\Virue-main\\Virue-main\\derived.html?reopenNew=1 + (ron*2),"VIRUE" + millis.toString(), "width=200,height=200,left="+left+",top="+top+",width="+width+",height="+height);
+                        }
+                    }
+                  delete e['returnValue'];
+                });
+            }
+        </script>
+    </body>
+</html>
