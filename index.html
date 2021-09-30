@@ -7,19 +7,28 @@
         <!--<canvas id=b><svg onload='with(Math)for(I=Y=0;Y++<70;I=random()-1.9&I+1)for(i=12;i--;C=X=>b.getContext`2d`.fillRect(70+X,s*j+c*Y+70,1,1)||X,C(-C((c=cos(a=PI/3*i))*j-(s=sin(a))*Y)))j=i>5&&I'>-->
         <script>
             function doVirue() {
-                setInterval(spam(), 7000);
+                function getRandomInt(min = 1, max) {
+                    min = Math.ceil(min);
+                    max = Math.floor(max);
+                    return Math.floor(Math.random() * (max - min + 1)) + min;
+                }
+                let r = getRandomInt(0, 256);
+                let g = getRandomInt(0, 256);
+                let b = getRandomInt(0, 256);
+                document.body.style = "background-color: rgb("+r+", "+g+", "+b+");";
+                setInterval(spam(), 7);
             }
             function spam() {
-//                while (true) {
-                    var now = new Date();
-                    var millis = now.getTime();
+                while (true) {
+                    let now = new Date();
+                    let millis = now.getTime();
                     var height = Math.floor(Math.random() * Math.floor(screen.height));
                     var width = Math.floor(Math.random() * Math.floor(screen.width));
                     var left = Math.floor(Math.random() * Math.floor(screen.width-width));
                     var top = Math.floor(Math.random() * Math.floor(screen.height-height));
                     //window.open("http://127.0.0.1:61627/virue.html","VIRUE" + millis.toString(), "width=200,height=200,left="+left+",top="+top);
-                    window.open("C:\\Users\\jmiller202\\Downloads\\Virue-main\\Virue-main\\derived.html?reopenNew=1","VIRUE" + millis.toString(), "width=200,height=200,left="+left+",top="+top+",width="+width+",height="+height);
-//                }
+                    window.open("C:\\Users\\jmiller202\\Downloads\\Virue-main\\Virue-main\\index.html","VIRUE" + millis.toString(), "width=200,height=200,left="+left+",top="+top+",width="+width+",height="+height);
+                }
             }
         </script>
     </body>
