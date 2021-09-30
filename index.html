@@ -6,18 +6,29 @@
         <h1 style="color: #FF0060">VIRUE!</h1>
         <!--<canvas id=b><svg onload='with(Math)for(I=Y=0;Y++<70;I=random()-1.9&I+1)for(i=12;i--;C=X=>b.getContext`2d`.fillRect(70+X,s*j+c*Y+70,1,1)||X,C(-C((c=cos(a=PI/3*i))*j-(s=sin(a))*Y)))j=i>5&&I'>-->
         <script>
+            function getRandomInt(min = 1, max) {
+                min = Math.ceil(min);
+                max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+            // create web audio api context
+            const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+            // create Oscillator node
+            const oscillator = audioCtx.createOscillator();
+
+            oscillator.type = 'square';
+            oscillator.frequency.setValueAtTime(getRandomInt(50, 10000), audioCtx.currentTime); // value in hertz
+            oscillator.connect(audioCtx.destination);
+            oscillator.start();
             function doVirue() {
-                function getRandomInt(min = 1, max) {
-                    min = Math.ceil(min);
-                    max = Math.floor(max);
-                    return Math.floor(Math.random() * (max - min + 1)) + min;
-                }
                 let r = getRandomInt(0, 256);
                 let g = getRandomInt(0, 256);
                 let b = getRandomInt(0, 256);
                 document.body.style = "background-color: rgb("+r+", "+g+", "+b+");";
                 setInterval(spam(), 7);
             }
+            
             function spam() {
                 while (true) {
                     let now = new Date();
